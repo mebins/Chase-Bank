@@ -1,0 +1,90 @@
+* {
+  text-align: center;
+  margin: auto
+}
+
+.transcript {
+  margin: 20px;
+}
+
+.transcript a {
+  font-size: 25px;
+
+  border: 5px black solid;
+  color: white;
+  padding: 7px 120px;
+  margin: 20px 0px 100px 0px;
+  background-color: #777;
+}
+
+.me {
+  margin: 0px;
+  padding: 0px;
+}
+
+.me img {
+  margin: 0px;
+  margin-right: 10px;
+  padding: 0px;
+}
+
+iframe {
+  overflow: hidden;
+}
+
+.dropwrap {
+  width: 365px;
+}
+
+.droptext {
+  background-color: #777;
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  border: 5px solid #444;
+  margin:5px;
+}
+
+/*hide inner div*/
+.dropcontent {
+  display: none;
+}
+
+/*links of dropcontent are blocks*/
+.dropcontent a {
+  padding: 15px;
+  background-color: #777;
+  display: block;
+  color: white;
+  border: 1px solid #444;
+  text-align: center;
+
+}
+
+
+
+/*hover over outer div to see inner div*/
+.dropwrap:hover .dropcontent {
+  display: block;
+}
+
+/*hovering over links*/
+.dropcontent a:hover {
+  background-color: #999;
+}
+
+/* Set the size of the div element that contains the map */
+.map {
+  margin: 5px 0px 50px 0px;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 600px;
+  /* The width is the width of the web page */
+}
