@@ -3,7 +3,7 @@ require 'dbh.inc.php';
 
 
 if(isLoggedIn()){
-    echo "logged in as " . $_SESSION['username']. getUserId() . "<br>";
+    //echo "logged in as " . $_SESSION['username']. getUserId() . "<br>";
   }
   else{
     header("location:./index.php?dush");
@@ -19,8 +19,8 @@ if (isset($_GET['createAccount'])) {;
   createAccount($conn,getUserId());
 }
 
-echo "you have: ".getNumberOfAccountsById($conn,getUserId()) ." accounts <br>";
-echo "your total balance is: ".getTotalBalanceById($conn, getUserId()) ." dollars <br>";
+//echo "you have: ".getNumberOfAccountsById($conn,getUserId()) ." accounts <br>";
+//echo "your total balance is: ".getTotalBalanceById($conn, getUserId()) ." dollars <br>";
 function createAccount($conn, $ownerId){
   $defaultBalance = 0;
   $sql = "INSERT INTO accounts(owner,balance) VALUES ($ownerId,$defaultBalance)";
