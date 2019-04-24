@@ -1,0 +1,9 @@
+add close incremental
+When I wake up tomorrow morning, we need to create an owner id column
+then tie mebin's front end
+then do some unity programming while I wait for the others
+saturday more unity
+sunday wrap up
+
+
+END: added close and open incremental payments
