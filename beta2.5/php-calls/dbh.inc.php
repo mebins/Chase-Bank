@@ -1,7 +1,7 @@
 <?php
 session_start();
 $servername = "localhost";
-$dBUsername = "root";
+$dBUsername = "user";
 $dBPassword = "";
 $dBName = "bank2";
 
@@ -137,10 +137,14 @@ function isLoggedIn(){
       return -999;
     }
 }
+function getUser()
+{
+  echo $_SESSION['username'];
+}
 
 function loginCheck(){
   if(isLoggedIn()){
-      echo "logged in as " . $_SESSION['username']. getUserId() . "<br>";
+      //echo "logged in as " . $_SESSION['username']. getUserId() . "<br>";
     }
     else{
       header("location:./index.php?dush");

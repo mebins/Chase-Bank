@@ -83,9 +83,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="deposit.php">Deposit</a>
             <a class="collapse-item" href="imageDeposit.php">Image Deposit</a>
-            <a class="collapse-item" href="withdraw.php"> Withdrawal</a>
+            <a class="collapse-item" href="withdraw.php">Withdrawal and Deposit</a>
             <a class="collapse-item" href="transfer.php">Transfer</a>
           </div>
         </div>
