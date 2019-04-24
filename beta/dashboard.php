@@ -18,6 +18,50 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+
+    <style>
+        /*body {font-family: Arial, Helvetica, sans-serif;}*/
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -272,13 +316,28 @@
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
+
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Checking Account: </div>
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Checking Account: </div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                        <!-- Trigger/Open The Modal -->
+                        <button id="myBtn">Make A Transfer</button>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <button>within my account</button>
+                                <button>to other people's account</button>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -353,7 +412,8 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
+
+      <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -388,6 +448,34 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+      <script>
+          // Get the modal
+          var modal = document.getElementById('myModal');
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("myBtn");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+
+          // When the user clicks the button, open the modal
+          btn.onclick = function() {
+              modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+              modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+          }
+      </script>
 
 </body>
 
