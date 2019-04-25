@@ -1,7 +1,7 @@
 <?php
 session_start();
 $servername = "localhost";
-$dBUsername = "user";
+$dBUsername = "root";
 $dBPassword = "";
 $dBName = "bank2";
 
@@ -179,3 +179,7 @@ while($account = mysqli_fetch_assoc($result)){
 }
   return $total;
 }
+
+
+//===============================================================
+//auto payment functions

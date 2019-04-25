@@ -86,6 +86,8 @@
             <a class="collapse-item" href="imageDeposit.php">Image Deposit</a>
             <a class="collapse-item" href="withdraw.php">Withdrawal and Deposit</a>
             <a class="collapse-item" href="transfer.php">Transfer</a>
+            <a class="collapse-item" href="createAuto.php">Create Autopayment</a>
+            <a class="collapse-item" href="closeAuto.php">Close Autopayment</a>
           </div>
         </div>
       </li>

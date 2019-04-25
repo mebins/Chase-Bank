@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require './php-calls/deposit.inc.php';
+require './php-calls/dbh.inc.php';
 ?>
 
 <html lang="en">
@@ -88,6 +88,8 @@ require './php-calls/deposit.inc.php';
             <a class="collapse-item active" href="imageDeposit.php">Image Deposit</a>
             <a class="collapse-item" href="withdraw.php"> Withdrawal and Deposit</a>
             <a class="collapse-item" href="transfer.php">Transfer</a>
+            <a class="collapse-item" href="createAuto.php">Create Autopayment</a>
+            <a class="collapse-item" href="closeAuto.php">Close Autopayment</a>
           </div>
         </div>
       </li>
@@ -185,6 +187,7 @@ require './php-calls/deposit.inc.php';
               <form action="./php-calls/imageDeposit.inc.php" method="post"  enctype ="multipart/form-data">
                 <select name="account">
                   <?php
+                  require './php-calls/insertForms.inc.php';
                   insertAccountOptions($conn);
                    ?>
                 </select>

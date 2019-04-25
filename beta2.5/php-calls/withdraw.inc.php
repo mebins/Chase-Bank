@@ -46,19 +46,4 @@ else{
 }
 } //post submit end
 
-
-function insertAccountOptions($conn){
-  $id = getUserId();
-  $sql = "SELECT * FROM accounts WHERE owner = $id";
-  $result = mysqli_query($conn,$sql);
-  if(!($result)){
-      die(mysqli_error($conn));
-  }
-  //  <option value="Yellow">Yellow</option>
-  while($account = mysqli_fetch_assoc($result)){
-    $accountId = $account['id'];
-    $balance = getBalance($conn, $accountId);
-    echo'<option value="'.$accountId.'">ID:'.$accountId.' $'.$balance.'</option>';
-  }
-}
 ?>

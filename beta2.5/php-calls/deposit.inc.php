@@ -13,15 +13,15 @@ if(isset($_POST['submit'])){
     $account = $_POST['account'];
     echo "<br>" . $amount . " === " . $account;
     if($amount == null){
-      header("Location: ../deposit.php?error=err");
+      header("Location: ../withdraw.php?error=err");
       exit();
     } //end null
     if($amount < 0){
-        header("Location: ../deposit.php?error=err");
+        header("Location: ../withdraw.php?error=err");
       exit();
     }
     if (!(is_numeric($amount))){
-      header("Location: ../deposit.php?error=err");
+      header("Location: ../withdraw.php?error=err");
     exit();
     }
     $balance = getBalance($conn, $account);
@@ -31,29 +31,13 @@ if(isset($_POST['submit'])){
 
   } //post account end
   else{
-      header("Location: ../deposit.php?error=notfilled1");
+      header("Location: ../withdraw.php?error=notfilled1");
     exit();
   }
 } //post amount end
   else{
-    header("Location: ../deposit.php?error=notfilled2");
+    header("Location: ../withdraw.php?error=notfilled2");
   exit();
   }
 } //post submit end
-
-
-function insertAccountOptions($conn){
-  $id = getUserId();
-  $sql = "SELECT * FROM accounts WHERE owner = $id";
-  $result = mysqli_query($conn,$sql);
-  if(!($result)){
-      die(mysqli_error($conn));
-  }
-  //  <option value="Yellow">Yellow</option>
-  while($account = mysqli_fetch_assoc($result)){
-    $accountId = $account['id'];
-    $balance = getBalance($conn, $accountId);
-    echo'<option value="'.$accountId.'">ID:'.$accountId.' $'.$balance.'</option>';
-  }
-}
 ?>
