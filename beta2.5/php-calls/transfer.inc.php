@@ -5,20 +5,20 @@
   if(isset($_POST['submit']))
   {
   if(!(isset($_POST['submit']))){
-    header("Location: ../transfer.php?error=err");
+    header("Location: ../transfer.php?error=button");
     exit();
   }
 
   if(!(isset($_POST['amount']))){
-    header("Location: ../transfer.php?error=err");
+    header("Location: ../transfer.php?error=amount");
     exit();
   }
   if(!(isset($_POST['from']))){
-    header("Location: ../transfer.php?error=err");
+    header("Location: ../transfer.php?error=amount");
     exit();
   }
   if(!(isset($_POST['to']))){
-    header("Location: ../transfer.php?error=err");
+    header("Location: ../transfer.php?error=amount");
     exit();
   }
     $amount = getAmount();
@@ -28,7 +28,7 @@
 
     $fromAccountNewBalance = getBalance($conn, $fromAccountId) - $amount;
     if($fromAccountNewBalance < 0){
-      header("Location: ../transfer.php?error=err2");
+      header("Location: ../transfer.php?error=funds");
     exit();
     }
 
@@ -55,15 +55,15 @@ else{ //NO BUTTON
 function getAmount(){
   $amount = $_POST['amount'];
   if($amount == null){
-    header("Location: ../transfer.php?error=err");
+    header("Location: ../transfer.php?error=amount");
     exit();
   } //end null
   if($amount < 0){
-      header("Location: ../transfer.php?error=err");
+      header("Location: ../transfer.php?error=amount");
     exit();
   }
   if (!(is_numeric($amount))){
-    header("Location: ../transfer.php?error=err");
+    header("Location: ../transfer.php?error=amount");
   exit();
   }
 return $amount;

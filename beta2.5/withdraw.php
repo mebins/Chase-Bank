@@ -195,16 +195,6 @@ require './php-calls/dbh.inc.php';
             <input type="submit" name="submit" value="Withdraw" />
           </form>
 
-
-          <?php
-          //=========ERROR MESSAGE DIV HERE?===========
-          echo "<br>error message here<br>";
-          if(isset($_GET['error'])){
-          if($_GET['error'] == "err"){
-                  echo "invalid input (sample error text)";
-            }
-          }
-          ?>
             </div>
 
         </div>
@@ -222,23 +212,37 @@ require './php-calls/dbh.inc.php';
               </select>
               <input type="submit" name="submit" value="Deposit" />
             </form>
+            <!-- -->
+          </div>
 
-
-        <?php
-        //=========ERROR MESSAGE DIV HERE?===========
-        echo "<br>error message here<br>";
-        if(isset($_GET['error'])){
-        if($_GET['error'] == "err"){
-                echo "invalid input (sample error text)";
+          </div>
+          <?php
+          //=========ERROR MESSAGE DIV HERE?===========
+            echo "<b>";
+          if(isset($_GET['error'])){
+            if($_GET['error'] == "damount"){
+                    echo "Please enter a valid amount";
+              }
           }
-        }
-        ?>
-          </div>
-          </div>
+              echo "</b>";
+
+              //=========ERROR MESSAGE DIV HERE?===========
+              echo "<b>";
+              if(isset($_GET['error'])){
+              if($_GET['error'] == "wamount"){
+                      echo "Please enter a valid amount";
+                }
+                if($_GET['error'] == "funds"){
+                        echo "Insufficient funds";
+                  }
+              }
+                echo "</b>";
+          ?>
       </div>
         <!-- /.container-fluid -->
 
       </div>
+
       <!-- End of Main Content -->
 
       <!-- Footer -->

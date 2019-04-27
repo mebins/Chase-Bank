@@ -199,12 +199,21 @@ require './php-calls/dbh.inc.php';
 
           <?php
           //=========ERROR MESSAGE DIV HERE?===========
-          echo "<br>error message here<br>";
+          echo "<b>";
           if(isset($_GET['error'])){
           if($_GET['error'] == "err"){
                   echo "invalid input (sample error text)";
             }
+            if($_GET['error'] == "invalidFile"){
+                    echo "Please upload a valid file!)";
+              }
+
+              if($_GET['error'] == "amount"){
+                      echo "Please upload a valid amount!)";
+                }
+            //invalidFile
           }
+            echo "<b>";
           ?>
             </div>
 

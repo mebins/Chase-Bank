@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
     print_r($file);
     $fileActualExt = strtolower(end($fileExt));
 
-    $allowed = array('jpg','jpeg', 'png', 'pdf');
+    $allowed = array('jpg','jpeg', 'png');
 
     if(!(in_array($fileActualExt, $allowed))){
             header("Location: ../imageDeposit.php?error=invalidFile");
@@ -43,15 +43,15 @@ if(isset($_POST['submit'])){
     $account = $_POST['account'];
     echo "<br>" . $amount . " === " . $account;
     if($amount == null){
-      header("Location: ../imageDeposit.php?error=errnull");
+      header("Location: ../imageDeposit.php?error=amount");
       exit();
     } //end null
     if($amount < 0){
-        header("Location: ../imageDeposit.php?error=err");
+        header("Location: ../imageDeposit.php?error=amount");
       exit();
     }
     if (!(is_numeric($amount))){
-      header("Location: ../imageDeposit.php?error=err");
+      header("Location: ../imageDeposit.php?error=amount");
     exit();
     }
     $balance = getBalance($conn, $account);

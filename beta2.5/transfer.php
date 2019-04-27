@@ -230,13 +230,16 @@ require './php-calls/dbh.inc.php';
       </div>
 
           <?php
-          //=========ERROR MESSAGE DIV HERE?===========
-          echo "<br>error message here<br>";
+          echo "<b>";
           if(isset($_GET['error'])){
-          if($_GET['error'] == "err"){
-                  echo "invalid input (sample error text)";
+          if($_GET['error'] == "amount"){
+                  echo "Please enter a valid amount";
             }
+            if($_GET['error'] == "funds"){
+                    echo "Insufficient funds";
+              }
           }
+            echo "</b>";
           ?>
 
         </div>
