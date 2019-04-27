@@ -1,8 +1,15 @@
 <?php
   require 'dbh.inc.php';
   loginCheck();
-  if(isset($_POST['submit'])){
-      if(isset($_POST['account'])){
+  if(!(isset($_POST['submit']))){
+    header("Location: ../closeAuto.php?error=nobutton");
+    exit();
+  }
+
+  if(!(isset($_POST['account']))){
+    header("Location: ../closeAuto.php?error=fields");
+    exit();
+  }
 
       $AutoPaymentID = (int)$_POST['account'];
       $sql = "delete from autopayments where AutoPaymentID = $AutoPaymentID";
@@ -18,12 +25,8 @@
       }
 
       header("Location: ../dashboard.php?successDelete");
+      exit();
 
-    }
-    else{
-      header("Location: ../dashboard.php?noAccSelected");
-    }
-  }
 
   // header("Location: ../dashboard.php?success");
 

@@ -8,20 +8,20 @@
   }
 
   if(!(isset($_POST['amount']))){
-    header("Location: ../createAuto.php?error=erramount");
+    header("Location: ../createAuto.php?error=fields");
     exit();
   }
   if(!(isset($_POST['from']))){
-    header("Location: ../createAuto.php?error=err");
+    header("Location: ../createAuto.php?error=fields");
     exit();
   }
   if(!(isset($_POST['to']))){
-    header("Location: ../createAuto.php?error=err");
+    header("Location: ../createAuto.php?error=fields");
     exit();
   }
 
   if(!(isset($_POST['seconds']))){
-    header("Location: ../createAuto.php?error=errsec");
+    header("Location: ../createAuto.php?error=fields");
     exit();
   }
     $amount = getAmount();
@@ -32,7 +32,7 @@
 
     $fromAccountNewBalance = getBalance($conn, $fromAcct) - $amount;
     if($fromAccountNewBalance < 0){
-      header("Location: ../createAuto.php?error=err2");
+      header("Location: ../createAuto.php?error=amount");
     exit();
     }
 
