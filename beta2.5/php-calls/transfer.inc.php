@@ -26,11 +26,26 @@
     $fromAccountId = $_POST['from'];
     $toAccountId = $_POST['to'];
 
-    $fromAccountNewBalance = getBalance($conn, $fromAccountId) - $amount;
-    if($fromAccountNewBalance < 0){
-      header("Location: ../transfer.php?error=funds");
+    if(getUserByAccountId($conn,$toAccountId) == -1){
+      header("Location: ../transfer.php?error=userDNE");
+      exit();
+    }
+
+    if(!(isLessThan100k($amount))){
+    header("Location: ../transfer.php?error=tooBig");
     exit();
     }
+
+    // if(!(isLessThan100k($to))){
+    // header("Location: ../transfer.php?error=tooBig");
+    // exit();
+    // }
+
+    $fromAccountNewBalance = getBalance($conn, $fromAccountId) - $amount;
+    // if($fromAccountNewBalance < 0){
+    //   header("Location: ../transfer.php?error=funds");
+    // exit();
+    // }
 
   transfer($conn, $fromAccountId, $toAccountId, $amount);
   header("Location: ../dashboard.php?success");

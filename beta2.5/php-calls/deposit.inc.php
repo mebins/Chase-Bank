@@ -21,6 +21,12 @@ if(!(isset($_POST['account']))){
 
     $amount = $_POST['amount'];
     $account = $_POST['account'];
+
+    if(!(isLessThan100k($amount))){
+    header("Location: ../withdraw.php?error=tooBig");
+    exit();
+    }
+
     echo "<br>" . $amount . " === " . $account;
     if($amount == null){
       header("Location: ../withdraw.php?error=damount");

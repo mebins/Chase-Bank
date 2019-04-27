@@ -215,6 +215,14 @@ require './php-calls/dbh.inc.php';
               if($_GET['error'] == "errFileUpload"){
                       echo "File upload error. Try a different image.";
               }
+
+              if($_GET['error'] == "fields"){
+                      echo "Please fill up all fields.";
+              }
+
+              if($_GET['error'] == "tooBig"){
+                      echo "Fields cannot exceed 100,000.";
+              }
             //invalidFile
           }
             echo "<b>";

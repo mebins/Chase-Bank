@@ -235,6 +235,10 @@ require './php-calls/dbh.inc.php';
                 if($_GET['error'] == "funds"){
                         echo "Insufficient funds";
                   }
+
+                  if($_GET['error'] == "tooBig"){
+                          echo "Fields cannot exceed 100,000.";
+                    }
               }
                 echo "</b>";
           ?>

@@ -14,6 +14,24 @@ if(!$conn){
   die("connection failed " .mysqli_connect_error());
 }
 
+function isLessThan100k($number){
+  if($number <= 100000){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+function isShorterThan20($string){
+  if(strlen($string) <= 20){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 function getUserName($conn){
 if (!(isLoggedIn())){
   return "LOGGED OFF";

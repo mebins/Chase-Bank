@@ -3,13 +3,13 @@ require 'dbh.inc.php';
 loginCheck();
 
 if(isset($_POST['submit'])){
-  
+
   if(!(isset($_POST['amount']))){
-    header("Location: ../imageDeposit.php?error=notfilled1");
+    header("Location: ../imageDeposit.php?error=amount");
      exit();
     }
     if(!(isset($_POST['account']))){
-      header("Location: ../imageDeposit.php?error=notfilled2");
+      header("Location: ../imageDeposit.php?error=fields");
        exit();
     }
 
@@ -41,6 +41,12 @@ if(isset($_POST['submit'])){
 
 
     $amount = $_POST['amount'];
+
+    if(!(isLessThan100k($amount))){
+    header("Location: ../imageDeposit.php?error=tooBig");
+    exit();
+    }
+
     $account = $_POST['account'];
     echo "<br>" . $amount . " === " . $account;
     if($amount == null){

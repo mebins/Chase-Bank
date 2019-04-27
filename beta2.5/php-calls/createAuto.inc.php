@@ -30,16 +30,31 @@
     $timePeriod = getSeconds();
     $toAcct = getTo();
 
+    if(!(isLessThan100k($amount))){
+    header("Location: ../createAuto.php?error=tooBig");
+    exit();
+    }
+
+    if(!(isLessThan100k($timePeriod))){
+    header("Location: ../createAuto.php?error=tooBig");
+    exit();
+    }
+
+    if(!(isLessThan100k($toAcct))){
+    header("Location: ../createAuto.php?error=tooBig");
+    exit();
+    }
+
     if(getUserByAccountId($conn,$toAcct) == -1){
       header("Location: ../createAuto.php?error=userDNE");
     exit();
     }
 
     $fromAccountNewBalance = getBalance($conn, $fromAcct) - $amount;
-    if($fromAccountNewBalance < 0){
-      header("Location: ../createAuto.php?error=amount");
-    exit();
-    }
+    // if($fromAccountNewBalance < 0){
+    //   header("Location: ../createAuto.php?error=amount");
+    // exit();
+    // }
 
     $id = getUserId();
     $sql = "insert into autopayments (FromAccountFK, ToAccountFK, Amount, TimePeriod,owner) Values ($fromAcct, $toAcct, $amount, $timePeriod,$id)";

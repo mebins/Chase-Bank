@@ -23,6 +23,12 @@ loginCheck();
 
     $amount = $_POST['amount'];
     $account = $_POST['account'];
+
+    if(!(isLessThan100k($amount))){
+    header("Location: ../withdraw.php?error=tooBig");
+    exit();
+    }
+
     echo "<br>" . $amount . " === " . $account;
     if($amount == null){
       header("Location: ../withdraw.php?error=wamount");
@@ -38,13 +44,13 @@ loginCheck();
     }
     $balance = getBalance($conn, $account);
     $newBalance = $balance - $amount;
-    if($newBalance < 0){
-    header("Location: ../withdraw.php?error=funds");
-    exit();
-    }
-    else{
+    // if($newBalance < 0){
+    // header("Location: ../withdraw.php?error=funds");
+    // exit();
+    // }
+    // else{
     setBalance($conn,$account,$newBalance);
     header("Location: ../dashboard.php?success");
-}
+
 
 ?>

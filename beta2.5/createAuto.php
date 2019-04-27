@@ -231,6 +231,10 @@ require './php-calls/dbh.inc.php';
                     echo "No user exists with that account number.";
               }
 
+            if($_GET['error'] == "tooBig"){
+                    echo "Fields cannot exceed 100,000.";
+              }
+
           }
             echo "<b>";
           ?>
