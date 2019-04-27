@@ -23,8 +23,8 @@ function isLessThan100k($number){
   }
 }
 
-function isShorterThan20($string){
-  if(strlen($string) <= 20){
+function isShorterThan50($string){
+  if(strlen($string) <= 50){
     return true;
   }
   else{

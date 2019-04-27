@@ -52,6 +52,10 @@
                 else if($_GET['error'] == "alreadyexists"){
                   echo "username already exists";
                 }
+
+                else if($_GET['error'] == "tooBig"){
+                  echo "Fields cannot exceed 50 characters.";
+                }
               echo "<b>";
             }
            ?>

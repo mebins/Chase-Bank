@@ -16,6 +16,16 @@
   $uid = $_POST['username'];
   $password = $_POST['password'];
 
+  if(!(isShorterThan50($uid))){
+    header("Location: ../login.php?error=tooBig");
+    exit();
+  }
+
+  if(!(isShorterThan50($password))){
+    header("Location: ../login.php?error=tooBig");
+    exit();
+  }
+
   //check for empty fields
   if(empty($uid) || empty($password)) {
     header("Location: ../login.php?error=emptyfields");

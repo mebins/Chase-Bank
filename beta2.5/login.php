@@ -48,6 +48,7 @@ require './php-calls/dbh.inc.php';
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
         <?php
+        echo"<b>";
           if(isset($_GET['error'])){
               //we are brought inside here by, for example, header("Location: ../index.php?error=nouser2");
               if($_GET['error'] == "nouser" || $_GET['error'] == "nouser2" || $_GET['error'] == "wrongpwd" || $_GET['error'] == "wrongpwd2"){
@@ -56,7 +57,12 @@ require './php-calls/dbh.inc.php';
               else if ($_GET['error'] == "emptyfields"){
                 echo "<br><b>*please fill out all the fields.<b> <br>";
               }
+
+              else if ($_GET['error'] == "tooBig"){
+                echo "<br> Fields cannot exceed 50 characters. <br>";
+              }
             }
+                  echo"</b>";
           ?>
                   <form  method = "post" action = "php-calls/login.inc.php" class="user">
                     <div class="form-group">

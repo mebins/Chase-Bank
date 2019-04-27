@@ -30,6 +30,10 @@ require './php-calls/dbh.inc.php';
             else if ($_GET['error'] == "emptyfields"){
               echo "<br> please fill out all the fields <br>";
             }
+
+            else if ($_GET['error'] == "tooBig"){
+              echo "<br> Fields cannot exceed 50 characters. <br>";
+            }
           }
         ?>
       </b>

@@ -15,6 +15,27 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $passwordRepeat = $_POST['password2'];
 
+if(!(isShorterThan50($username))){
+  header("Location: ../register.php?error=tooBig");
+  exit();
+}
+
+if(!(isShorterThan50($email))){
+  header("Location: ../register.php?error=tooBig");
+  exit();
+}
+
+if(!(isShorterThan50($password))){
+  header("Location: ../register.php?error=tooBig");
+  exit();
+}
+
+if(!(isShorterThan50($passwordRepeat))){
+  header("Location: ../register.php?error=tooBig");
+  exit();
+}
+
+
 //check for empty fields
 if(empty($username) || empty($email) || empty($password) || empty($passwordRepeat)){
   header("Location: ../register.php?error=emptyfields&uid= ".$username."&mail=".$email);
