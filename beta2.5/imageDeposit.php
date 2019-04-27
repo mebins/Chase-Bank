@@ -205,12 +205,16 @@ require './php-calls/dbh.inc.php';
                   echo "invalid input (sample error text)";
             }
             if($_GET['error'] == "invalidFile"){
-                    echo "Please upload a valid file!)";
+                    echo "Please upload a valid file!";
               }
 
               if($_GET['error'] == "amount"){
                       echo "Please upload a valid amount!)";
-                }
+              }
+
+              if($_GET['error'] == "errFileUpload"){
+                      echo "File upload error. Try a different image.";
+              }
             //invalidFile
           }
             echo "<b>";

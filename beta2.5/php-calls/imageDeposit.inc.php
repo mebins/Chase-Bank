@@ -3,6 +3,7 @@ require 'dbh.inc.php';
 loginCheck();
 
 if(isset($_POST['submit'])){
+  
   if(!(isset($_POST['amount']))){
     header("Location: ../imageDeposit.php?error=notfilled1");
      exit();

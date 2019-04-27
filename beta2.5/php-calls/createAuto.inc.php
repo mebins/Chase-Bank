@@ -27,8 +27,13 @@
     $amount = getAmount();
 
     $fromAcct = $_POST['from'];
-    $toAcct = $_POST['to'];
-    $timePeriod = $_POST['seconds'];
+    $timePeriod = getSeconds();
+    $toAcct = getTo();
+
+    if(getUserByAccountId($conn,$toAcct) == -1){
+      header("Location: ../createAuto.php?error=userDNE");
+    exit();
+    }
 
     $fromAccountNewBalance = getBalance($conn, $fromAcct) - $amount;
     if($fromAccountNewBalance < 0){
@@ -70,18 +75,51 @@
 //   }
 // }
 
+function getSeconds(){
+  $time = $_POST['seconds'];
+  if($time == null){
+    header("Location: ../createAuto.php?error=timeField");
+    exit();
+  } //end null
+  if($time < 0){
+      header("Location: ../createAuto.php?error=timeField");
+    exit();
+  }
+  if (!(is_numeric($time))){
+    header("Location: ../createAuto.php?error=timeField");
+  exit();
+  }
+return $time;
+}
+function getTo(){
+   $to = $_POST['to'];
+   if($to == null){
+     header("Location: ../createAuto.php?error=toField");
+     exit();
+   } //end null
+   if($to < 0){
+       header("Location: ../createAuto.php?error=toField");
+     exit();
+   }
+   if (!(is_numeric($to))){
+     header("Location: ../createAuto.php?error=toField");
+   exit();
+   }
+ return $to;
+}
+
 function getAmount(){
   $amount = $_POST['amount'];
   if($amount == null){
-    header("Location: ../createAuto.php?error=err");
+    header("Location: ../createAuto.php?error=amountField");
     exit();
   } //end null
   if($amount < 0){
-      header("Location: ../createAuto.php?error=err");
+      header("Location: ../createAuto.php?error=amountField");
     exit();
   }
   if (!(is_numeric($amount))){
-    header("Location: ../createAuto.php?error=err");
+    header("Location: ../createAuto.php?error=amountField");
   exit();
   }
 return $amount;

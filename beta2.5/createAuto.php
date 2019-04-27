@@ -211,9 +211,25 @@ require './php-calls/dbh.inc.php';
                   echo "Please fill out all fields.";
             }
 
+          if($_GET['error'] == "amountField"){
+                  echo "Invalid 'amount' input";
+            }
+
           if($_GET['error'] == "amount"){
                   echo "Insufficient funds.";
             }
+
+          if($_GET['error'] == "toField"){
+                  echo "Invalid 'to' input";
+            }
+
+            if($_GET['error'] == "timeField"){
+                    echo "Invalid 'time' input";
+              }
+
+            if($_GET['error'] == "userDNE"){
+                    echo "No user exists with that account number.";
+              }
 
           }
             echo "<b>";
