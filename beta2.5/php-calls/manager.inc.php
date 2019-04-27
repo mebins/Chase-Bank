@@ -31,28 +31,54 @@ function insertDashboard($conn){
       // }
   }
 function email($conn, $sort){
+  echo "<thead>
+    <tr>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Total balance</th>
+      <th>Accounts open</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Total balance</th>
+    <th>Accounts open</th>
+    </tr>
+  </tfoot>";
   $sql = "SELECT * FROM users ORDER BY email $sort";
   $result = mysqli_query($conn,$sql);
       if(!($result)){
         die(mysqli_error($conn));    // Thanks to Pekka for pointing this out.
     }
     while($user = mysqli_fetch_assoc($result)){
-
-    echo'<div class="dashboard-account">
-      <div class="account-content">
-
-      Username: '.$user['username'].' Email:
-
-      <div class="account-balance">
-
-      '.$user['email'].'
-
-      </div>
-    </div>
-  </div>';
+      echo
+      '<tbody>
+        <tr>
+          <td>'.$user['email'].'</td>
+          <td>'.$user['username'].'</td>
+          <td>'.getTotalBalanceById($conn, $user['id']).'</td>
+          <td>'.getNumberOfAccountsById($conn, $user['id']).'</td>
+        </tr>
+      </tbody>';
   }
 }
 function balance($conn,$sort){
+  echo "<thead>
+    <tr>
+      <th>Balace</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+    <th>Balace</th>
+    <th>Name</th>
+    <th>Email</th>
+    </tr>
+  </tfoot>";
   $sql = "SELECT * FROM accounts ORDER BY balance $sort";
   $result = mysqli_query($conn,$sql);
       if(!($result)){
@@ -63,22 +89,34 @@ function balance($conn,$sort){
 
       $owner = getUserByUserId($conn, $account['owner']);
 
-  echo'<div class="dashboard-account">
-      <div class="account-content">
-
-      Owner: '.$owner['username'].' || Balance:
-
-      <div class="account-balance">
-
-      '.$account['balance'].'
-
-      </div>
-    </div>
-  </div>';
+  echo
+  '<tbody>
+    <tr>
+      <td>'.$account['balance'].'</td>
+      <td>'.$owner['username'].'</td>
+      <td>'.$owner['email'].'</td>
+    </tr>
+  </tbody>';
   }
 }
 
   function name($conn, $sort){
+    echo "<thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Total balance</th>
+        <th>Accounts open</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Total balance</th>
+      <th>Accounts open</th>
+      </tr>
+    </tfoot>";
       $sql = "SELECT * FROM users ORDER BY username $sort";
       $result = mysqli_query($conn,$sql);
           if(!($result)){
@@ -86,18 +124,15 @@ function balance($conn,$sort){
         }
         while($user = mysqli_fetch_assoc($result)){
 
-        echo'<div class="dashboard-account">
-          <div class="account-content">
-
-          Email: '.$user['email'].' Username:
-
-          <div class="account-balance">
-
-          '.$user['username'].'
-
-          </div>
-        </div>
-      </div>';
+          echo
+          '<tbody>
+            <tr>
+              <td>'.$user['username'].'</td>
+              <td>'.$user['email'].'</td>
+              <td>'.getTotalBalanceById($conn, $user['id']).'</td>
+              <td>'.getNumberOfAccountsById($conn, $user['id']).'</td>
+            </tr>
+          </tbody>';
       }
   }
 ?>
