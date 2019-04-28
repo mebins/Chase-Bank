@@ -18,6 +18,10 @@ function insertDashboard($conn){
       email($conn,"ASC");
       }
 
+      if(isset($_GET['search'])){
+        search();
+      }
+
       if(isset($_GET['checkingSearch'])){
       require 'checkingSearch.inc.php';
       }
@@ -29,6 +33,12 @@ function insertDashboard($conn){
       // if(isset($_GET['accountsAsc'])){
       // accounts($conn,"ASC");
       // }
+  }
+  function search(){
+    echo'<form action="./php-calls/checkingSearch.inc.php" method="post">
+        <input type= "text" name= "name" placeholder = "Username">
+        <input type="submit" name="submit" value="Search" />
+      </form>';
   }
 function email($conn, $sort){
   echo "<thead>

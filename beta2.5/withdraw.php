@@ -233,12 +233,15 @@ require './php-calls/dbh.inc.php';
                       echo "Please enter a valid amount";
                 }
                 if($_GET['error'] == "funds"){
-                        echo "Insufficient funds";
-                  }
+                    echo "Insufficient funds";
+              }
 
-                  if($_GET['error'] == "tooBig"){
-                          echo "Fields cannot exceed 100,000.";
-                    }
+              if($_GET['error'] == "tooBig"){
+                      echo "Fields cannot exceed 100,000.";
+                }
+              if($_GET['error'] == "fields"){
+                      echo "Please fill all fields.";
+                }
               }
                 echo "</b>";
           ?>

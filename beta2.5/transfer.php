@@ -244,6 +244,10 @@ require './php-calls/dbh.inc.php';
           if($_GET['error'] == "tooBig"){
                   echo "Fields cannot exceed 100,000.";
             }
+
+          if($_GET['error'] == "fields"){
+                  echo "Please fill all fields.";
+            }
           }
             echo "</b>";
           ?>

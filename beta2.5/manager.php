@@ -171,7 +171,7 @@
         <div class="container-fluid">
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Accounts</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Functions</h6>
             </div>
 
             <div class="card-body">
@@ -179,25 +179,25 @@
                           <div>
                           <a href="./manager.php?emailAsc">
                           <div class="dashboard-button">
-                            email (ASC)
+                            Email (ASC)
                           </div>
                           </a>
 
                           <a href="./manager.php?nameAsc">
                           <div class="dashboard-button">
-                            name (ASC)
+                            Name (ASC)
                           </div>
                           </a>
 
                           <a href="./manager.php?balanceDesc">
                           <div class="dashboard-button">
-                            IndividualBalance (DESC)
+                            Individual Balance (DESC)
                           </div>
                           </a>
 
-                          <a href="./checkingSearch.php">
+                          <a href="./manager.php?search">
                           <div class="dashboard-button">
-                            Checking Search
+                            Image Deposit Search (BETA)
                           </div>
                           </a>
 

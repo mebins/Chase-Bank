@@ -13,6 +13,7 @@ loginCheck();
     exit();
   }
   if(!(isset($_POST['account']))){
+    header("Location: ../withdraw.php?error=fields");
     exit();
   }
 

@@ -14,11 +14,11 @@
     exit();
   }
   if(!(isset($_POST['from']))){
-    header("Location: ../transfer.php?error=amount");
+    header("Location: ../transfer.php?error=fields");
     exit();
   }
   if(!(isset($_POST['to']))){
-    header("Location: ../transfer.php?error=amount");
+    header("Location: ../transfer.php?error=fields");
     exit();
   }
     $amount = getAmount();
