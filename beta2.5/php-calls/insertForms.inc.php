@@ -1,4 +1,5 @@
 <?php
+loginCheck();
 function insertAccountOptions($conn){
   $id = getUserId();
   $sql = "SELECT * FROM accounts WHERE owner = $id";

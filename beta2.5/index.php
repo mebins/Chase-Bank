@@ -12,7 +12,7 @@
 <div class = main-menu>
 <a href="register.php"><div class="menu-button">Register</div></a>
 <a href="login.php"><div class="menu-button">Login</div></a>
-<a href="locate-atms2.php"><div class="menu-button">Nearby ATM</div></a>
+<a href="map.php"><div class="menu-button">Nearby ATM</div></a>
 </div>
 <div class="slideshow-container">
 

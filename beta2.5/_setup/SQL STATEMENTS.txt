@@ -1,0 +1,56 @@
+
+CREATE DATABASE bank2;
+
+CREATE TABLE bank2.users(
+    id int AUTO_INCREMENT,
+    username varchar(255),
+    password varchar(255),
+    email varchar(255),
+    PRIMARY KEY (id)
+    
+ );
+
+ CREATE TABLE bank2.accounts(
+    id int AUTO_INCREMENT,
+    owner varchar(255),
+    balance int(255),
+    PRIMARY KEY (id)
+ );
+ 
+  CREATE TABLE bank2.uploads(
+    id int AUTO_INCREMENT,
+    owner varchar(255),
+    name varchar(255),
+    amount int(255),
+    PRIMARY KEY (id)
+ );
+ 
+ CREATE TABLE bank2.autopayments(
+     AutoPaymentID INT NOT NULL AUTO_INCREMENT,
+     FromAccountFK INT NOT NULL,
+     ToAccountFK INT NOT NULL,
+     Amount INT NOT NULL,TimePeriod INT NOT NULL,
+     owner INT NOT NULL,
+     PRIMARY KEY (AutoPaymentID)
+  );
+  
+  CREATE TABLE bank2.transactions (
+  `TransactionID` INT NOT NULL AUTO_INCREMENT,
+  `FromAccountFK` INT NULL,
+  `ToAccountFK` INT NULL,
+  `Amount` INT NULL,
+  `Date` DATETIME NULL,
+  PRIMARY KEY (`TransactionID`));
+  
+ DELIMITER $$
+CREATE PROCEDURE bank2.transfer(
+   IN fromAcct INT,
+   IN toAcct INT,
+   IN amount INT
+   )
+BEGIN
+    UPDATE accounts SET balance = balance - amount WHERE id = fromAcct;
+    UPDATE accounts SET balance = balance + amount WHERE id = toAcct;
+    INSERT INTO transactions(FromAccountFK, ToAccountFK, Amount, Date) VALUES (fromAcct, toAcct, amount, NOW());
+END$$
+DELIMITER ;
