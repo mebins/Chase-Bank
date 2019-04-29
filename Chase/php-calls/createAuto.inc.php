@@ -96,7 +96,7 @@ function getSeconds(){
     header("Location: ../createAuto.php?error=timeField");
     exit();
   } //end null
-  if($time < 0){
+  if($time <= 0){
       header("Location: ../createAuto.php?error=timeField");
     exit();
   }
