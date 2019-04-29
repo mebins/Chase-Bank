@@ -6,12 +6,59 @@ $dBPassword = "";
 $dBName = "bank2";
 
 $LIMIT = 0;
-
 $conn = mysqli_connect($servername,$dBUsername,$dBPassword,$dBName);
+
+
 
 if(!$conn){
   echo "connection error";
   die("connection failed " .mysqli_connect_error());
+}
+
+function trimDollar($amount){
+  $string1 = "123.12345";
+  $string2 = "12.123.12333";
+  $string3 = "12.1";
+  $string4 = "12"; //ok
+  $string5 = "12.";
+  $string6 = ".";
+  $string7 = ".432";
+  $string8 = ".222";
+
+
+  $current = $amount;
+
+  $count = substr_count($current,".");
+  echo "count: ". $count;
+
+  if($count == 0){
+    return $current;
+  }
+
+  if($count != 1){
+    return -1;
+  }
+
+  $pos = strpos($current, ".");
+  $firsthalf = substr($current,0,$pos);
+  $lasthalf = substr($current,$pos+1,strlen($current));
+  echo "firsthalf: ".$firsthalf;
+  echo "lasthalf: ". $lasthalf;
+
+  if($lasthalf == null){
+    return -1;
+  }
+
+  if(($firsthalf == null) && (strlen($lasthalf) > 2)){
+    return -1;
+  }
+
+  if(strlen($lasthalf) > 2){
+    return -1;
+  }
+
+  return $current;
+
 }
 
 function isLessThan100k($number){

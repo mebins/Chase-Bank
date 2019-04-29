@@ -40,7 +40,11 @@
     // header("Location: ../transfer.php?error=tooBig");
     // exit();
     // }
-
+    if(trimDollar($amount) == -1){
+      header("Location: ../transfer.php?error=amount");
+    exit();
+    }
+    $amount = trimDollar($amount);
     $fromAccountNewBalance = getBalance($conn, $fromAccountId) - $amount;
     // if($fromAccountNewBalance < 0){
     //   header("Location: ../transfer.php?error=funds");

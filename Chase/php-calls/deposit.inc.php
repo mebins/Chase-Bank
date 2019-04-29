@@ -43,6 +43,12 @@ if(!(isset($_POST['account']))){
     }
     $balance = getBalance($conn, $account);
     $newBalance = $balance + $amount;
+
+    if(trimDollar($amount) == -1){
+      header("Location: ../withdraw.php?error=wamount");
+    exit();
+    }
+    $amount = trimDollar($amount);
     setBalance($conn,$account,$newBalance);
     header("Location: ../dashboard.php?success");
     exit();

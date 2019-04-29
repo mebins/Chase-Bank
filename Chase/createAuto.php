@@ -204,7 +204,9 @@ require './php-calls/dbh.inc.php';
           if($_GET['error'] == "fields"){
                   echo "Please fill out all fields.";
             }
-
+            if($_GET['error'] == "int"){
+                    echo "Whole numbers only.";
+              }
           if($_GET['error'] == "amountField"){
                   echo "Invalid 'amount' input";
             }

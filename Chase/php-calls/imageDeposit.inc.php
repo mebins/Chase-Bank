@@ -63,6 +63,13 @@ if(isset($_POST['submit'])){
     }
     $balance = getBalance($conn, $account);
     $newBalance = $balance + $amount;
+
+    if(trimDollar($amount) == -1){
+      header("Location: ../imageDeposit.php?error=amount");
+    exit();
+    }
+    $amount = trimDollar($amount);
+
     setBalance($conn,$account,$newBalance);
     $userId = getUserId();
     $sql = "INSERT INTO uploads(owner,name,amount) VALUES ('$userId','$fileNameNew','$amount')";

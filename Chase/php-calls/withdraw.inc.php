@@ -17,8 +17,6 @@ loginCheck();
     exit();
   }
 
-    header("Location: ../transfer.php?error=account");
-
     $selected_val = (int)$_POST['account'];  // Storing Selected Value In Variable
     echo "You have selected :" .$selected_val;  // Displaying Selected Value
 
@@ -43,6 +41,13 @@ loginCheck();
       header("Location: ../withdraw.php?error=wamount");
     exit();
     }
+
+    if(trimDollar($amount) == -1){
+      header("Location: ../withdraw.php?error=wamount");
+    exit();
+    }
+    $amount = trimDollar($amount);
+
     $balance = getBalance($conn, $account);
     $newBalance = $balance - $amount;
     // if($newBalance < 0){

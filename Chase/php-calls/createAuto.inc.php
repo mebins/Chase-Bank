@@ -104,6 +104,11 @@ function getSeconds(){
     header("Location: ../createAuto.php?error=timeField");
   exit();
   }
+
+  if (!(floor($time) == $time)){
+    header("Location: ../createAuto.php?error=int");
+  exit();
+  }
 return $time;
 }
 function getTo(){
@@ -135,6 +140,11 @@ function getAmount(){
   }
   if (!(is_numeric($amount))){
     header("Location: ../createAuto.php?error=amountField");
+  exit();
+  }
+  //whole number
+  if (!(floor($amount) == $amount)){
+    header("Location: ../createAuto.php?error=int");
   exit();
   }
 return $amount;
